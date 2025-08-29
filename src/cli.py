@@ -10,10 +10,10 @@ import sys
 from pathlib import Path
 import json
 
-from .audio_loader import AudioLoader
-from .feature_extractor import FeatureExtractor
-from .spectrogram_generator import SpectrogramGenerator
-from .batch_processor import BatchProcessor
+from audio_loader import AudioLoader
+from feature_extractor import FeatureExtractor
+from spectrogram_generator import SpectrogramGenerator
+from batch_processor import BatchProcessor
 
 
 def extract_features_command(args):

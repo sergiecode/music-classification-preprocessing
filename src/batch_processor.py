@@ -12,11 +12,9 @@ from typing import Union, List, Dict, Any, Optional
 from tqdm import tqdm
 import multiprocessing
 
-from .audio_loader import AudioLoader
-from .feature_extractor import FeatureExtractor
-from .spectrogram_generator import SpectrogramGenerator
-
-
+from audio_loader import AudioLoader
+from feature_extractor import FeatureExtractor  
+from spectrogram_generator import SpectrogramGenerator
 class BatchProcessor:
     """
     Batch processor for large-scale audio preprocessing operations.
@@ -26,19 +24,19 @@ class BatchProcessor:
     """
     
     def __init__(self,
-                 input_dir: Union[str, Path],
-                 output_dir: Union[str, Path],
+                 input_dir: Optional[Union[str, Path]] = None,
+                 output_dir: Optional[Union[str, Path]] = None,
                  max_workers: Optional[int] = None):
         """
         Initialize BatchProcessor.
         
         Args:
-            input_dir: Directory containing input audio files
-            output_dir: Directory for processed output files
+            input_dir: Directory containing input audio files (can be set later)
+            output_dir: Directory for processed output files (can be set later)
             max_workers: Maximum number of parallel workers (None for auto)
         """
-        self.input_dir = Path(input_dir)
-        self.output_dir = Path(output_dir)
+        self.input_dir = Path(input_dir) if input_dir else None
+        self.output_dir = Path(output_dir) if output_dir else None
         self.max_workers = max_workers or min(8, multiprocessing.cpu_count())
         
         # Initialize processors
@@ -46,10 +44,11 @@ class BatchProcessor:
         self.feature_extractor = FeatureExtractor()
         self.spectrogram_generator = SpectrogramGenerator()
         
-        # Create output directories
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-        (self.output_dir / "features").mkdir(exist_ok=True)
-        (self.output_dir / "spectrograms").mkdir(exist_ok=True)
+        # Create output directories if specified
+        if self.output_dir:
+            self.output_dir.mkdir(parents=True, exist_ok=True)
+            (self.output_dir / "features").mkdir(exist_ok=True)
+            (self.output_dir / "spectrograms").mkdir(exist_ok=True)
         (self.output_dir / "logs").mkdir(exist_ok=True)
     
     def process_directory(self,

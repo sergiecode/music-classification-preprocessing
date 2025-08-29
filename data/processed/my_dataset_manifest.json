@@ -1,0 +1,17 @@
+{
+  "dataset_name": "my_dataset",
+  "created_by": "music-classification-preprocessing",
+  "total_files": 1,
+  "total_errors": 0,
+  "processing_date": "C:\\Users\\SnS_D\\Desktop\\IA\\music-classification-preprocessing",
+  "files": [
+    {
+      "filename": "test_audio.wav",
+      "duration": 3.0,
+      "sample_rate": 22050,
+      "features_file": "data\\processed\\features\\test_audio_features.json",
+      "spectrogram_file": "data\\processed\\spectrograms\\test_audio_spectrogram.npy",
+      "file_size_mb": 0.12621307373046875
+    }
+  ]
+}

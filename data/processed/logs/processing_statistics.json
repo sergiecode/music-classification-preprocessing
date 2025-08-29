@@ -1,0 +1,14 @@
+{
+  "total_files": 1,
+  "total_duration_hours": 0.0008333333333333334,
+  "average_duration_seconds": 3.0,
+  "total_size_gb": 0.0001232549548149109,
+  "average_file_size_mb": 0.12621307373046875,
+  "processing_success_rate": 100.0,
+  "duration_distribution": {
+    "min": 3.0,
+    "max": 3.0,
+    "median": 3.0,
+    "std": 0.0
+  }
+}

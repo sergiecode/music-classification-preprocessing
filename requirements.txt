@@ -1,6 +1,6 @@
 # Audio processing and machine learning libraries
 librosa>=0.10.1
-numpy>=1.24.0
+numpy>=1.24.0,<=2.2.0
 scipy>=1.10.0
 matplotlib>=3.7.0
 seaborn>=0.12.0
