@@ -66,7 +66,7 @@ Raw Audio Files → Standardized Format → Feature Extraction → ML-Ready Data
 
 ### Step 1: Clone the Repository
 ```powershell
-git clone https://github.com/yourusername/music-preprocessing.git
+git clone https://github.com/sergiecode/music-preprocessing.git
 cd music-preprocessing
 ```
 
